@@ -6,13 +6,16 @@ Required tools:
 - Audio Understanding
 """
 
-from google import genai
-from google.genai import types
+import os
 
 from agents import function_tool
 from dotenv import load_dotenv
+from google import genai
+from google.genai import types
+
 
 load_dotenv()
+GOOGLE_MODEL = os.getenv("GEMINI_MODEL")
 
 
 client = genai.Client()

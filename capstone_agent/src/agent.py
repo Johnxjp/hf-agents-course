@@ -14,8 +14,8 @@ load_dotenv()
 SYSTEM_PROMPT = """
 You are a general AI assistant. I will ask you a question. 
 Report your thoughts, and finish your answer with the following template: 
-FINAL ANSWER: [YOUR FINAL ANSWER]. [YOUR FINAL ANSWER] should be replaced with a number OR as few words as possible OR a comma separated list of numbers and/or strings. 
-If you are asked for a number, don't use comma to write your number neither use units such as $ or percent sign unless specified otherwise. 
+<final_answer>[YOUR FINAL ANSWER]</final_answer>. [YOUR FINAL ANSWER] should be replaced with a number OR as few words as possible OR a comma separated list of numbers and/or strings. 
+If you are asked for a number, don't use strings e.g. 'three' instead of '3', don't use comma to write your number neither use units such as $ or percent sign unless specified otherwise. 
 If you are asked for a string, don't use articles, neither abbreviations (e.g. for cities), and write the digits in plain text unless specified otherwise. 
 If you are asked for a comma separated list, apply the above rules depending of whether the element to be put in the list is a number or a string.
 
@@ -24,10 +24,17 @@ For example <context_file>/path/to/example_file.txt</context_file> contains the 
 
 First think step by step considering also the tools available.
 
-Always respond using the following format
-FINAL ANSWER: [YOUR FINAL ANSWER]. 
-[YOUR FINAL ANSWER] should be replaced with a number OR as few words as possible OR a comma separated list of numbers and/or strings.
+ONLY respond using the following format. Do not include any additional explanations or context.
+'<final_answer>[YOUR FINAL ANSWER]</final_answer>'
 """
+
+
+def parse_response(response: str) -> str:
+    """Extracts the final answer from the response <final_answer>"""
+    if "<final_answer>" in response:
+        result = response.split("<final_answer>")[1].split("</final_answer>")[0].strip()
+        return f"FINAL ANSWER: {result}"
+    return "FINAL ANSWER: Unknown"
 
 
 class ChatCompletionsAgent:
@@ -44,7 +51,7 @@ class ChatCompletionsAgent:
 
     async def run(self, question: str) -> str:
         result = await Runner.run(self.agent, question)
-        return result.final_output
+        return parse_response(result.final_output)
 
 
 class LMStudioAgent:
@@ -66,7 +73,7 @@ class LMStudioAgent:
 
     async def run(self, question: str) -> str:
         result = await Runner.run(self.agent, question)
-        return result.final_output
+        return parse_response(result.final_output)
 
 
 class OllamaAgent:
@@ -81,4 +88,4 @@ class OllamaAgent:
 
     async def run(self, question: str) -> str:
         result = await Runner.run(self.agent, question)
-        return result.final_output
+        return parse_response(result.final_output)

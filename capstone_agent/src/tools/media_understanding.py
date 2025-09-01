@@ -1,15 +1,15 @@
-from agents import function_tool
+import os
 
+from agents import function_tool
+from dotenv import load_dotenv
 from google import genai
 from google.genai import types as google_types
-from typer import prompt
 
 from src.utils import read_audio_file, read_image_file
 
-
+load_dotenv()
+GOOGLE_MODEL = os.getenv("GEMINI_MODEL")
 client = genai.Client()
-
-GOOGLE_MODEL = "gemini-2.0-flash"
 
 
 @function_tool
