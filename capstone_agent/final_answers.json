@@ -2,72 +2,72 @@
     "responses": [
         {
             "task_id": "8e867cd7-cff9-4e6c-867a-ff5ddc2550be",
-            "answer": "FINAL ANSWER: 5",
+            "answer": "5",
             "reason": "completed"
         },
         {
             "task_id": "a1e91b78-d3d8-4675-bb8d-62741b4b68a6",
-            "answer": "FINAL ANSWER: 3",
+            "answer": "3",
             "reason": "completed"
         },
         {
             "task_id": "2d83110e-a098-4ebb-9987-066c06fa42d0",
-            "answer": "FINAL ANSWER: right",
+            "answer": "right",
             "reason": "completed"
         },
         {
             "task_id": "cca530fc-4052-43b2-b130-b30968d8aa44",
-            "answer": "FINAL ANSWER: Qd1+",
+            "answer": "Qd1+",
             "reason": "completed"
         },
         {
             "task_id": "4fc2f1ae-8625-45b5-ab34-ad4433bc21f8",
-            "answer": "FINAL ANSWER: FunkMonk",
+            "answer": "FunkMonk",
             "reason": "completed"
         },
         {
             "task_id": "6f37996b-2ac7-44b0-8e68-6d28256631b4",
-            "answer": "FINAL ANSWER: a,b,c,e",
+            "answer": "a,b,c,e",
             "reason": "completed"
         },
         {
             "task_id": "9d191bce-651d-4746-be2d-7ef8ecadb9c2",
-            "answer": "FINAL ANSWER: Extremely",
+            "answer": "Extremely",
             "reason": "completed"
         },
         {
             "task_id": "cabe07ed-9eca-40ea-8ead-410ef5e83f91",
-            "answer": "FINAL ANSWER: ",
+            "answer": "",
             "reason": "completed"
         },
         {
             "task_id": "3cef3a44-215e-4aed-8e3b-b1e3f08063b7",
-            "answer": "FINAL ANSWER: bell pepper, broccoli, celery, corn, green beans, lettuce, sweet potatoes, zucchini",
+            "answer": "bell pepper, broccoli, celery, corn, green beans, lettuce, sweet potatoes, zucchini",
             "reason": "completed"
         },
         {
             "task_id": "99c9cc74-fdc8-46c6-8f8d-3ce2d3bfeea3",
-            "answer": "FINAL ANSWER: cornstarch, dash of pure vanilla extract, freshly squeezed lemon juice, granulated sugar, ripe strawberries",
+            "answer": "cornstarch, dash of pure vanilla extract, freshly squeezed lemon juice, granulated sugar, ripe strawberries",
             "reason": "completed"
         },
         {
             "task_id": "305ac316-eef6-4446-960a-92d80d542f82",
-            "answer": "FINAL ANSWER: Wojciech",
+            "answer": "Wojciech",
             "reason": "completed"
         },
         {
             "task_id": "f918266a-b3e0-4914-865d-4faa564f1aef",
-            "answer": "FINAL ANSWER: 0",
+            "answer": "0",
             "reason": "completed"
         },
         {
             "task_id": "3f57289b-8c60-48be-bd80-01f8099ca449",
-            "answer": "FINAL ANSWER: unknown",
+            "answer": "unknown",
             "reason": "completed"
         },
         {
             "task_id": "1f975693-876d-457b-a649-393859e79bf3",
-            "answer": "FINAL ANSWER: 132,133,134,197,245",
+            "answer": "132,133,134,197,245",
             "reason": "completed"
         },
         {
@@ -77,27 +77,27 @@
         },
         {
             "task_id": "bda648d7-d618-4883-88f4-3466eabd860e",
-            "answer": "FINAL ANSWER: St. Petersburg",
+            "answer": "St. Petersburg",
             "reason": "completed"
         },
         {
             "task_id": "cf106601-ab4f-4af9-b045-5295fe67b37d",
-            "answer": "FINAL ANSWER: CUB",
+            "answer": "CUB",
             "reason": "completed"
         },
         {
             "task_id": "a0c07678-e491-4bbc-8f0b-07405144218f",
-            "answer": "FINAL ANSWER: unknown, unknown",
+            "answer": "unknown, unknown",
             "reason": "completed"
         },
         {
             "task_id": "7bd855d8-463d-4ed5-93ca-5fe35145f733",
-            "answer": "FINAL ANSWER: Unable to process the Excel file",
+            "answer": "Unable to process the Excel file",
             "reason": "completed"
         },
         {
             "task_id": "5a0c1adf-205e-4841-a666-7c3ef95def9d",
-            "answer": "FINAL ANSWER: Claus",
+            "answer": "Claus",
             "reason": "completed"
         }
     ],
