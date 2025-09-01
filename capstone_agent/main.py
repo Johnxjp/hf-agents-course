@@ -1,7 +1,8 @@
-from datetime import datetime
 import argparse
 import asyncio
+from datetime import datetime
 import json
+import time
 from typing import TypedDict
 
 from agents import FunctionTool
@@ -81,7 +82,7 @@ async def main(model_name: str, client_name: str, target_ids: list[str]):
             generate_transcript,
             transcribe_youtube_video,
             query_youtube_video,
-            web_search, 
+            web_search,
         ],
     )
     responses = {
@@ -95,21 +96,31 @@ async def main(model_name: str, client_name: str, target_ids: list[str]):
     # Run the agent
     questions = load_questions("./questions.json")
     for q in questions:
-        task_id, question, level, support_file_name = (
+        task_id, question, _, support_file_name = (
             q["task_id"],
             q["question"],
             q["Level"],
             q["file_name"],
         )
         if target_ids and task_id not in target_ids:
-            responses["responses"].append({"task_id": task_id, "response": "skipped"})
+            responses["responses"].append({"task_id": task_id, "answer": "", "reason": "skipped"})
             continue
 
-        print(f"Processing {task_id} | Question {question}")
+        print(f"{task_id} | QUESTION {question}")
         query = construct_query(question, [support_file_name])
-        response = await agent.run(query)
-        responses["responses"].append({"task_id": task_id, "response": str(response)})
-        print(str(response))
+        try:
+            response = await agent.run(query)
+            responses["responses"].append(
+                {"task_id": task_id, "answer": response, "reason": "completed"}
+            )
+            print(f"{task_id} | QUESTION {question} | RESULT {response}")
+        except Exception as e:
+            print(f"Error processing {task_id}: {e}")
+            responses["responses"].append({"task_id": task_id, "answer": "", "reason": "error"})
+
+        # To avoid rate limiting. Google 2.5 Flash has 10 Requests Per Minute Max
+        print("Sleeping for 6 seconds to avoid rate limiting...")
+        time.sleep(6)
 
     now = datetime.now().strftime("%Y%m%d_%H%M%S")
     with open(f"./test_runs/responses_{now}.json", "w") as f:
