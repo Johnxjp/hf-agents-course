@@ -14,6 +14,7 @@ from src.tools.media_understanding import (
     transcribe_youtube_video,
     query_youtube_video,
 )
+from src.tools.search import web_search
 from src.agent import LMStudioAgent, OllamaAgent, ChatCompletionsAgent
 
 
@@ -80,6 +81,7 @@ async def main(model_name: str, client_name: str, target_ids: list[str]):
             generate_transcript,
             transcribe_youtube_video,
             query_youtube_video,
+            web_search, 
         ],
     )
     responses = {
