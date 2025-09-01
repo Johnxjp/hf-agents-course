@@ -75,8 +75,13 @@ def run_and_submit_all(profile: gr.OAuthProfile | None):
     results_log = []
     answers_payload = []
     print(f"Running agent on {len(questions_data)} questions...")
-    with open("./final_answers.json") as f:
-        data = json.load(f)
+
+    try:
+        with open("./final_answers.json") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        with open("/home/user/app/capstone_agent/final_answers.json") as f:
+            data = json.load(f)
 
     answers = data["responses"]
     for item in answers:
