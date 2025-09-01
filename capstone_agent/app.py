@@ -75,7 +75,7 @@ def run_and_submit_all(profile: gr.OAuthProfile | None):
     results_log = []
     answers_payload = []
     print(f"Running agent on {len(questions_data)} questions...")
-    with open("./finals_answers.json") as f:
+    with open("./final_answers.json") as f:
         data = json.load(f)
 
     answers = data["responses"]
